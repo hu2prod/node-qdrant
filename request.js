@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-export async function body_request(url,body,method){
+this.body_request = async function body_request(url,body,method){
     method = method || "POST";
 
     let fetch_spec = {
@@ -25,7 +25,7 @@ export async function body_request(url,body,method){
 }
 
 
-export async function url_request(url,params){
+this.url_request = async function url_request(url,params){
     if (params) {
         url += "?" + new URLSearchParams(params).toString();
     }
