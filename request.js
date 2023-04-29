@@ -16,11 +16,16 @@ this.body_request = async function body_request(url,body,method){
     let response = await fetch(url, fetch_spec);
 
     let text = await response.text();
+    let res;
     try {
-        return JSON.parse(text);
+        res = JSON.parse(text);
     } catch {
         throw new Error(text);
     }
+    if (res.status && res.status.error) {
+        throw new Error(res.status.error);
+    }
+    return res;
 }
 
 
@@ -32,9 +37,14 @@ this.url_request = async function url_request(url,params){
     let response = await fetch(url);
 
     let text = await response.text();
+    let res;
     try {
-        return JSON.parse(text);
+        res = JSON.parse(text);
     } catch {
         throw new Error(text);
     }
+    if (res.status && res.status.error) {
+        throw new Error(res.status.error);
+    }
+    return res;
 }
