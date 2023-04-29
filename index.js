@@ -46,7 +46,8 @@ Qdrant.prototype.search_collection = async function (name,vector,k,ef,filter) {
 			"hnsw_ef": ef
 		},
 		"vector": vector,
-		"top": k
+		"top": k,
+		"with_payload": true
 	};
 	if (filter) query.filter = filter;
 	return body_request(url,query,'POST');
