@@ -7,7 +7,7 @@ const QdrantResponse = function(response) {
 	this.response = response[1];
 }
 
-export const Qdrant = function(url){
+const Qdrant = function(url){
 	this.url = url||base_url;
 };
 
@@ -71,3 +71,5 @@ Qdrant.prototype.retrieve_points = async function (name,query) {
 	let url = `${qdrant_url}collections/${name}/points`;
 	return new QdrantResponse(await body_request(url,query,'POST'));
 }
+
+module.exports = Qdrant
