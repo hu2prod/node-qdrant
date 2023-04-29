@@ -15,13 +15,7 @@ this.body_request = async function body_request(url,body,method){
 
     let response = await fetch(url, fetch_spec);
 
-    try {
-        const output = await response.json();
-        return [null,output];
-    } catch(ex) {
-        const output = null;
-        return [ex,output];
-    }
+    return response.json();
 }
 
 
@@ -32,11 +26,5 @@ this.url_request = async function url_request(url,params){
 
     let response = await fetch(url);
 
-    try {
-        const output = await response.json();
-        return [null,output];
-    } catch(ex) {
-        const output = null;
-        return [ex,output];
-    }
+    return response.json();
 }
