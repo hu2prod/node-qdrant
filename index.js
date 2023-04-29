@@ -17,7 +17,7 @@ Qdrant.prototype.delete_collection = async function (name) {
 Qdrant.prototype.create_collection = async function (name,body) {
 	let qdrant_url = this.url;
 	let url = `${qdrant_url}collections/${encodeURIComponent(name)}`;
-	return body_request(url,body,'PUT');
+	return body_request(url,{vectors:body},'PUT');
 }
 
 //GET http://localhost:6333/collections/{collection_name}
