@@ -1,4 +1,4 @@
-import { body_request, url_request } from "./request.js";
+const { body_request, url_request } = require("./request.js");
 
 const base_url = "http://localhost:6333/";
 

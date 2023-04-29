@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 
 export async function body_request(url,body,method){
     method = method || "POST";
